@@ -1,0 +1,28 @@
+name: Testing Pitch
+# run workflow on git push and git pull
+on:
+  schedule:
+    # runs at every 20th minute
+    - cron: '*/20 * * * *'
+jobs:
+  cypress-run:
+    # OS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        # checks-out your repository so your workflow can access it
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        # GitHub Action for running Cypress end-to-end tests
+        uses: cypress-io/github-action@v4
+        with:
+          record: true
+          tag: v10.10,experimentalSessionAndOrigin
+          config-file: cypress.config.js
+        env:
+          # pass the Dashboard record key as an environment variable
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # pass the project ID from the secrets through environment variable
+          CYPRESS_PROJECT_ID: ${{ secrets.PROJECT_ID }}
