@@ -24,10 +24,10 @@ Cypress.on("uncaught:exception", (err, runnable) => {
   return false
 })
 
-afterEach(() => {
-  // just a dummy request
-  cy.request({
-    url: '/dev/',
-    failOnStatusCode: false
-  })
-})
+// afterEach(() => {
+//   // just a dummy request
+//   cy.request({
+//     url: '/dev/',
+//     failOnStatusCode: false
+//   })
+// })

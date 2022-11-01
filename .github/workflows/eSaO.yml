@@ -1,9 +1,6 @@
-name: Testing Pitch
+name: Testing Pitch eSaO
 # run workflow on git push and git pull
-on:
-  schedule:
-    # runs at every 20th minute
-    - cron: '*/20 * * * *'
+on: push
 jobs:
   cypress-run:
     # OS

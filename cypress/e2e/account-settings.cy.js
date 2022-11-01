@@ -58,8 +58,8 @@ describe('Tests', () => {
     cy.get('.title-bar-headline-secondary').should('be.visible').and('have.text', newName)
   })
 
-  it('test 4', () => {
-    const subscribedAllLabel = 'Subscribed to all'
+  it.skip('test 4', () => {
+    const subscribedAllLabel = 'Mentions only' //'Subscribed to all'
     const notificationsLabel = 'Email preferences'
     openAccountSettingsFromDashboard()
 
